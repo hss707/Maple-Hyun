@@ -95,7 +95,7 @@ void impeil_up_arrow(int key1) {  // 임페일
   impeil_tread();
 }
 void impeil_up() {
-  Keyboard.press(keys.up);
+  inKey(keys.up);
   rd_30(random (30, 36));
   Keyboard.press(s_key03);
   rd_30(random (70, 111));
