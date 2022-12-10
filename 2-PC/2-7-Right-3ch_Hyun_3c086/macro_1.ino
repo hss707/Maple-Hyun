@@ -1,6 +1,3 @@
-//////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////      마지막 수정 22.12.01
-//////////////////////////////////////////////////////////////////////////////////////////////
 void pressKey(int key) {
   Keyboard.press(key);
   rd_70(100);
@@ -8,38 +5,39 @@ void pressKey(int key) {
   rd_30(50);
 }
 void chicken_run3_No1() {
-pressKey(keys.up);
-pressKey(keys.down);
-pressKey(keys.left);
-pressKey(keys.right);
-pressKey(keys.lalt);
-pressKey(keys.ralt);
+//pressKey(keys.up);
+//pressKey(keys.down);
+//pressKey(keys.left);
+//pressKey(keys.right);
+//pressKey(keys.lalt);
+//pressKey(keys.ralt);
 pressKey(keys.lctrl);
 pressKey(keys.rctrl);
-pressKey(keys.lshift);
-pressKey(keys.rshift);
-pressKey(keys.space);
-pressKey(keys.insert);
-pressKey(keys.pgdn);
-pressKey(keys.pgup);
-pressKey(keys.home);
-pressKey(keys.Delete);
-pressKey(keys.end);
-pressKey(keys.backspace);
-pressKey(keys.capslock);
-pressKey(keys.tab);
-pressKey(keys.f1);
-pressKey(keys.f2);
-pressKey(keys.f3);
-pressKey(keys.f4);
-pressKey(keys.f5);
-pressKey(keys.f6);
-pressKey(keys.f7);
-pressKey(keys.f8);
-pressKey(keys.f9);
-pressKey(keys.f10);
-pressKey(keys.f11);
-pressKey(keys.f12);
+//pressKey(keys.lshift);
+//pressKey(keys.rshift);
+//pressKey(keys.space);
+//pressKey(keys.insert);
+//pressKey(keys.pgdn);
+//pressKey(keys.pgup);
+//pressKey(keys.home);
+//pressKey(keys.Delete);
+//pressKey(keys.end);
+//pressKey(keys.backspace);
+//pressKey(keys.capslock);
+//pressKey(keys.tab);
+//pressKey(keys.f1);
+//pressKey(keys.f2);
+//pressKey(keys.f3);
+//pressKey(keys.f4);
+//pressKey(keys.f5);
+//pressKey(keys.f6);
+//pressKey(keys.f7);
+//pressKey(keys.f8);
+//pressKey(keys.f9);
+//pressKey(keys.f10);
+//pressKey(keys.f11);
+//pressKey(keys.f12);
+  _p_p();
 }
   /*
   anum = random(0, 7);
