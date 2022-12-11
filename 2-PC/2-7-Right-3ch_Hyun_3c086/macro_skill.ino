@@ -123,12 +123,12 @@ void jump_tread() {
 }
 
 //딜레이 정리
-//void pressKey(int key) {
-//  Keyboard.press(key);
-//  rd_70(100);
-//  Keyboard.release(key);
-//  rd_30(50);
-//}
+void pressKey(int key) {
+  Keyboard.press(key);
+  rd_70(100);
+  Keyboard.release(key);
+  rd_30(50);
+}
 void pressFast(int key) {
   Keyboard.press(key);
   rd_40(80);

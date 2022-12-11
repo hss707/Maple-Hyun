@@ -1,4 +1,4 @@
-#define MY_ID 2 // 0~3
+#define MY_ID 0 // 0~3
 
 #define MODULE_NO 4  // 221208 수정
 
@@ -126,5 +126,5 @@ volatile int keyboard_flag = false; // 키보드 작동
 volatile int macro_flag = false; // 매크로 작동
 volatile int echo_flag = false; // 마우스 키보드 입력값 출력
 
-volatile int green_btn = false;
-volatile int red_btn = false;
+//volatile int green_btn = false;
+//volatile int red_btn = false;

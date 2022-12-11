@@ -223,6 +223,59 @@ void IRAM_ATTR green_toggle()
     prev_green_btn_status = green_btn_status;
     prev_green_key_changed = millis();
 
+//    function_key = true;
+//    Serial.println("ALL MACRO OFF");
+//    green_btn = false;
+//    red_btn = false;
+    keyboard_flag = false;
+    mouse_flag = false;
+
+    // 매크로 반영도 하지 않고, 진행도 하지 않음
+    macro_status = 0; // 일시 정지
+    macro_flag = false;
+    force_releaseall();
+  }
+}
+void IRAM_ATTR red_toggle()
+{
+  int green_btn_status = digitalRead(GREEN_BTN);
+  int red_btn_status = digitalRead(RED_BTN);
+
+  if ( red_btn_status == LOW ) // 빨간 버튼 누른 경우
+  {
+    // debouncing을 위하여
+    if ( ( millis() - prev_red_key_changed ) < 200 ) return;
+
+    prev_red_btn_status = red_btn_status;
+    prev_red_key_changed = millis();
+
+//    function_key = true;
+//    Serial.println("ACTIVATE");    // 11. 16 수정
+//    green_btn = false;
+//    red_btn = false;
+    keyboard_flag = true;
+    mouse_flag = true;
+    
+    // 매크로 반영도 하지 않고, 진행도 하지 않음
+    macro_status = 0; // 일시 정지
+    macro_flag = false;
+    force_releaseall();
+  }
+}
+/*
+  void IRAM_ATTR green_toggle()
+  {
+  int green_btn_status = digitalRead(GREEN_BTN);
+  int red_btn_status = digitalRead(RED_BTN);
+
+  if ( green_btn_status == LOW ) // 녹색 버튼 누른 경우
+  {
+    // debouncing을 위하여
+    if ( ( millis() - prev_green_key_changed ) < 200 ) return;
+
+    prev_green_btn_status = green_btn_status;
+    prev_green_key_changed = millis();
+
     // 구동 내용 ( CTRL + ESC )
     {
       // 키보드 마우스 끄기
@@ -255,10 +308,10 @@ void IRAM_ATTR green_toggle()
       }
     }
   }
-}
+  }
 
-void IRAM_ATTR red_toggle()
-{
+  void IRAM_ATTR red_toggle()
+  {
   int green_btn_status = digitalRead(GREEN_BTN);
   int red_btn_status = digitalRead(RED_BTN);
 
@@ -283,7 +336,8 @@ void IRAM_ATTR red_toggle()
     macro_flag = false;
     force_releaseall();
   }
-}
+  }
+*/
 
 bool check_ch9329()
 {
@@ -552,8 +606,8 @@ void usb_hid_process()
             // 활성화
             function_key = true;
             Serial.println("ACTIVATE");
-            green_btn = true;
-            red_btn = false;
+//            green_btn = true;
+//            red_btn = false;
             keyboard_flag = true;
             mouse_flag = true;
 
@@ -583,8 +637,8 @@ void usb_hid_process()
             {
               function_key = true;
               Serial.println("DEACTIVATE");
-              green_btn = false;
-              red_btn = false;
+//              green_btn = false;
+//              red_btn = false;
               macro_flag = false;
               keyboard_flag = false;
               mouse_flag = false;
@@ -624,8 +678,8 @@ void usb_hid_process()
             // 활성화
             function_key = true;
             Serial.println("ACTIVATE");
-            green_btn = true;
-            red_btn = false;
+//            green_btn = true;
+//            red_btn = false;
             keyboard_flag = true;
             mouse_flag = true;
 
@@ -655,8 +709,8 @@ void usb_hid_process()
             {
               function_key = true;
               Serial.println("DEACTIVATE");
-              green_btn = false;
-              red_btn = false;
+//              green_btn = false;
+//              red_btn = false;
               macro_flag = false;
               keyboard_flag = false;
               mouse_flag = false;
@@ -698,8 +752,8 @@ void usb_hid_process()
             {
               function_key = true;
               Serial.println("ALL MOUSE KEYBOARD OFF");
-              green_btn = false;
-              red_btn = false;
+//              green_btn = false;
+//              red_btn = false;
               macro_flag = false;
               keyboard_flag = false;
               mouse_flag = false;
@@ -744,8 +798,8 @@ void usb_hid_process()
             {
               function_key = true;
               Serial.println("ALL MACRO OFF");
-              green_btn = false;
-              red_btn = false;
+//              green_btn = false;
+//              red_btn = false;
               keyboard_flag = false;
               mouse_flag = false;
 
@@ -778,8 +832,8 @@ void usb_hid_process()
             // 매크로 재시작
             function_key = true;
             Serial.println("RESTART");
-            green_btn = false;
-            red_btn = true;
+//            green_btn = false;
+//            red_btn = true;
             keyboard_flag = false;
             mouse_flag = false;
 
@@ -831,8 +885,8 @@ void usb_hid_process()
             // 매크로 이어서 진행
             function_key = true;
             Serial.println("RESUME");
-            green_btn = false;
-            red_btn = true;
+//            green_btn = false;
+//            red_btn = true;
             keyboard_flag = false;
             mouse_flag = false;
 
