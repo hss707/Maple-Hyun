@@ -107,7 +107,7 @@ void loop()
   switch (no)
   {
     case 0:
-      test5();
+      test1();
       break;
     case 1:
       test2();
