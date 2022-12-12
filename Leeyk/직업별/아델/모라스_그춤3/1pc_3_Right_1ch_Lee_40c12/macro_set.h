@@ -2,7 +2,7 @@ int acheck = 1;
 int archeck = 1;
 int anum = 0;            // 공격함수
 int jnum = 0;             // 점프함수
-int j2num = 0;            // 점프함수2
+int jjnum = 0;            // 점프함수2
 int area = 0;             // 범위기함수
 int ordernum = 0;       // 오더함수
 
@@ -48,9 +48,9 @@ KEYSET keys;
 ////////////////////////      주력키 및 스킬 키 입력       
 //////////////////////////////////////////////////////////////////////////////////////////////
 
-int arr[7] = {keys.lshift, keys.rshift, keys.lctrl, 'm', 'n', ',', '.'};       // 주력기배치
+int arr[7] = {keys.lshift, keys.rshift, keys.lctrl, 'z', 'x', 'c', 'v'};       // 주력기배치
 int at[2] = {keys.lalt, keys.ralt};           // 1단점프
-int jp[2] = {keys.lalt, 'v'};        // 2단점프
+int jp[3] = {keys.lalt, keys.ralt, '.'};        // 2단점프
 
 
 char const  s_key01 = keys.end;       //      End();  S1()  테리토리
@@ -68,7 +68,7 @@ char const  s_key12 = 'c';        //      C();  S12() 인피니티
 char const  s_key13 = 'x';        //      X();  S13() 리스토어
 char const  s_key14 = '3';        //      k_3();  S14() 스인미
 char const  s_key15 = 's';        //      S();  S15() 로프
-char const  s_key16 = 'd';        //      D();  S16() 에르다 파운틴
+char const  s_key16 = 'e';        //      D();  S16() 에르다 파운틴
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////      주력키 및 스킬 키 입력       

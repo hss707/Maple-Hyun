@@ -1,4 +1,4 @@
-// PAUSE_POINT() ==> 변경 _p_p()
+
 #define _p_p() if ( check_stop() == false ) return;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -7,7 +7,7 @@
 ////  사용시 periodic_key1-10 = '?';      '?'; 에스킬키 소문자입력
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const char periodic_key1 = 'c';
+const char periodic_key1 = 0;
 unsigned long periodic_millis1;
 unsigned long periodic_min1 = 190000;
 unsigned long periodic_max1 = 220000;
@@ -78,6 +78,7 @@ volatile int macro_status = 0; // 0 : 일시정지, 1 : 구동중, 2 : 재시작
 
 #include "kproject_hid_device.h"
 #include "macro_set.h"
+
 void setup()
 {
   Serial.begin(115200);
@@ -106,7 +107,7 @@ void loop()
   switch (no)
   {
     case 0:
-      chicken_run3_No1();
+      test5();
       break;
     case 1:
       test2();
@@ -118,14 +119,29 @@ void loop()
 }
 
 
+void test5()
+{
+  // 2를 30회 출력
+  for ( int i = 0; i < 5; i++)
+  {
+    if ( d_150() == false ) return;
+    _p_p(); // 일시정지가 가능한 지점 설정
+    Keyboard.println("5");
+    Keyboard.println(" ");
+    _p_p(); // 일시정지가 가능한 지점 설정
+  }
+  if ( delay1(1000) == false ) return;
+  _p_p(); // 일시정지가 가능한 지점 설정
+}
 void test2()
 {
   // 2를 30회 출력
-  for ( int i = 0; i < 30; i++)
+  for ( int i = 0; i < 5; i++)
   {
-    if ( rd_50(150) == false ) return;
+    if ( d_150() == false ) return;
     _p_p(); // 일시정지가 가능한 지점 설정
-    Keyboard.print("2");
+    Keyboard.println("2");
+    Keyboard.println(" ");
     _p_p(); // 일시정지가 가능한 지점 설정
   }
   if ( delay1(1000) == false ) return;
@@ -135,11 +151,12 @@ void test2()
 void test3()
 {
   // 3를 30회 출력
-  for ( int i = 0; i < 30; i++)
+  for ( int i = 0; i < 5; i++)
   {
-    if ( rd_50(150) == false ) return;
+    if ( d_150() == false ) return;
     _p_p(); // 일시정지가 가능한 지점 설정
-    Keyboard.print("3");
+    Keyboard.println("3");
+    Keyboard.println(" ");
     _p_p(); // 일시정지가 가능한 지점 설정
   }
   if ( delay1(1000) == false ) return;

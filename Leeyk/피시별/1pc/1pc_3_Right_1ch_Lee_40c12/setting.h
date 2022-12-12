@@ -1,4 +1,4 @@
-#define MY_ID 0 // 0~7
+#define MY_ID 0 // 0~3
 
 #define MODULE_NO 8
 
@@ -40,14 +40,14 @@ char macro_restart_key[MODULE_NO][8] =
 
 char macro_resume_key[MODULE_NO][8] =
 {
-  { 0x2, 0, 0x3A, 0, 0, 0, 0, 0 } , // SHIFT + F1
-  { 0x2, 0, 0x3B, 0, 0, 0, 0, 0 } , // SHIFT + F2
-  { 0x2, 0, 0x3C, 0, 0, 0, 0, 0 } , // SHIFT + F3
-  { 0x2, 0, 0x3D, 0, 0, 0, 0, 0 } , // SHIFT + F4
-  { 0x2, 0, 0x3E, 0, 0, 0, 0, 0 } , // SHIFT + F5
-  { 0x2, 0, 0x3F, 0, 0, 0, 0, 0 } , // SHIFT + F6
-  { 0x2, 0, 0x40, 0, 0, 0, 0, 0 } , // SHIFT + F7
-  { 0x2, 0, 0x41, 0, 0, 0, 0, 0 } , // SHIFT + F8
+  { 0x2, 0, 0x1E, 0, 0, 0, 0, 0 } , // SHIFT + 1      // 11.01 수정
+  { 0x2, 0, 0x1F, 0, 0, 0, 0, 0 } , // SHIFT + 2
+  { 0x2, 0, 0x20, 0, 0, 0, 0, 0 } , // SHIFT + 3
+  { 0x2, 0, 0x21, 0, 0, 0, 0, 0 } , // SHIFT + 4
+  { 0x2, 0, 0x22, 0, 0, 0, 0, 0 } , // SHIFT + 5
+  { 0x2, 0, 0x23, 0, 0, 0, 0, 0 } , // SHIFT + 6
+  { 0x2, 0, 0x24, 0, 0, 0, 0, 0 } , // SHIFT + 7
+  { 0x2, 0, 0x25, 0, 0, 0, 0, 0 } , // SHIFT + 8
 };
 
 char periodic_reset_key[MODULE_NO][8] =
@@ -62,7 +62,7 @@ char periodic_reset_key[MODULE_NO][8] =
   { 0x3, 0, 0x41, 0, 0, 0, 0, 0 } , // CTRL + SHIFT + F8
 };
 
-// 불가한 사항인데 매뉴얼에 갑자기 들어가 있음.
+
 char active_key2[MODULE_NO][8] =
 {
   { 0x3, 0, 0x1E, 0, 0, 0, 0, 0 } , // CTRL + SHIFT + 1
@@ -87,6 +87,20 @@ char all_macro_off_key[8]  =
   0x01, 0, 0x45,  0, 0, 0, 0, 0 // CTRL + F12
 };
 
+const char* ssid = "leeyk";
+const char* password = "0123456789";
+
+const char* keyboard_manufact = "China Resource";
+const char* keyboard_product = "USB Keyboard";
+
+const char* mouse_manufact = "SIGMACHIP";
+const char* mouse_product = "Usb Mouse";
+
+uint16_t ch9329_vid = 0x1A2C;
+uint16_t ch9329_pid = 0x405E;
+uint16_t mouse_vid = 0x1C4F;
+uint16_t mouse_pid = 0x0034;
+
 /*
 const char* ssid = "taeyoung";
 const char* password = "87654321ab";
@@ -102,19 +116,7 @@ uint16_t ch9329_pid = 0x1603;
 uint16_t mouse_vid = 0x1C4F;
 uint16_t mouse_pid = 0x0034;
 */
-const char* ssid = "leeyk";
-const char* password = "0123456789";
 
-const char* keyboard_manufact = "China Resource";
-const char* keyboard_product = "USB Keyboard";
-
-const char* mouse_manufact = "SIGMACHIP";
-const char* mouse_product = "Usb Mouse";
-
-uint16_t ch9329_vid = 0x1A2C;
-uint16_t ch9329_pid = 0x405E;
-uint16_t mouse_vid = 0x1C4F;
-uint16_t mouse_pid = 0x0034;
 
 // 공통 변수
 // 시작시 세팅

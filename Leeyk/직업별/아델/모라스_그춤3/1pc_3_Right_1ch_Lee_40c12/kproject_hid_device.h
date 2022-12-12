@@ -213,7 +213,7 @@ int prev_red_btn_status;
 void IRAM_ATTR green_toggle()
 {
   int green_btn_status = digitalRead(GREEN_BTN);
-  int red_btn_status = digitalRead(RED_BTN);
+//  int red_btn_status = digitalRead(RED_BTN);
 
   if ( green_btn_status == LOW ) // 녹색 버튼 누른 경우
   {
@@ -223,43 +223,19 @@ void IRAM_ATTR green_toggle()
     prev_green_btn_status = green_btn_status;
     prev_green_key_changed = millis();
 
-    // 구동 내용 ( CTRL + ESC )
-    {
       // 키보드 마우스 끄기
-      if ( macro_flag == false )
         // 매크로가 구동중이 아니었던 경우
-      {
-        //        function_key = true;
-        // Serial.println("ALL MOUSE KEYBOARD OFF");    // 11. 16 수정
-        green_btn = false;
-        red_btn = false;
         macro_flag = false;
         keyboard_flag = false;
         mouse_flag = false;
 
         force_releaseall();
-      }
-      else
-        // 매크로가 구동중이었던 경우
-      {
-        green_btn = false;
-        red_btn = false;
-        keyboard_flag = false;
-        mouse_flag = false;
-
-        // 매크로 반영도 하지 않고, 진행도 하지 않음
-        macro_status = 0; // 일시 정지
-        // releaseall은 check_stop함수에서 실행
-        // macro_flag은 check_stop함수에서 변경
-        //        function_key = true;
-      }
-    }
   }
 }
 
 void IRAM_ATTR red_toggle()
 {
-  int green_btn_status = digitalRead(GREEN_BTN);
+//  int green_btn_status = digitalRead(GREEN_BTN);
   int red_btn_status = digitalRead(RED_BTN);
 
   if ( red_btn_status == LOW ) // 빨간 버튼 누른 경우
@@ -271,10 +247,6 @@ void IRAM_ATTR red_toggle()
     prev_red_key_changed = millis();
 
     // 활성화
-    // function_key = true;
-    // Serial.println("ACTIVATE");    // 11. 16 수정
-    green_btn = true;
-    red_btn = false;
     keyboard_flag = true;
     mouse_flag = true;
 
@@ -552,8 +524,6 @@ void usb_hid_process()
             // 활성화
             function_key = true;
             Serial.println("ACTIVATE");
-            green_btn = true;
-            red_btn = false;
             keyboard_flag = true;
             mouse_flag = true;
 
@@ -583,8 +553,6 @@ void usb_hid_process()
             {
               function_key = true;
               Serial.println("DEACTIVATE");
-              green_btn = false;
-              red_btn = false;
               macro_flag = false;
               keyboard_flag = false;
               mouse_flag = false;
@@ -624,8 +592,6 @@ void usb_hid_process()
             // 활성화
             function_key = true;
             Serial.println("ACTIVATE");
-            green_btn = true;
-            red_btn = false;
             keyboard_flag = true;
             mouse_flag = true;
 
@@ -655,8 +621,6 @@ void usb_hid_process()
             {
               function_key = true;
               Serial.println("DEACTIVATE");
-              green_btn = false;
-              red_btn = false;
               macro_flag = false;
               keyboard_flag = false;
               mouse_flag = false;
@@ -698,8 +662,6 @@ void usb_hid_process()
             {
               function_key = true;
               Serial.println("ALL MOUSE KEYBOARD OFF");
-              green_btn = false;
-              red_btn = false;
               macro_flag = false;
               keyboard_flag = false;
               mouse_flag = false;
@@ -744,8 +706,6 @@ void usb_hid_process()
             {
               function_key = true;
               Serial.println("ALL MACRO OFF");
-              green_btn = false;
-              red_btn = false;
               keyboard_flag = false;
               mouse_flag = false;
 
@@ -778,8 +738,6 @@ void usb_hid_process()
             // 매크로 재시작
             function_key = true;
             Serial.println("RESTART");
-            green_btn = false;
-            red_btn = true;
             keyboard_flag = false;
             mouse_flag = false;
 
@@ -831,8 +789,6 @@ void usb_hid_process()
             // 매크로 이어서 진행
             function_key = true;
             Serial.println("RESUME");
-            green_btn = false;
-            red_btn = true;
             keyboard_flag = false;
             mouse_flag = false;
 
@@ -863,80 +819,6 @@ void usb_hid_process()
         }
         ////////////////////////////////////////////////////////////////////////
         // 매크로 이어서 재생 키 체크 ( SHIFT + F1 ~ F8 )
-        ////////////////////////////////////////////////////////////////////////
-
-        ////////////////////////////////////////////////////////////////////////
-        // 주기적 실행키 리셋 ( CTRL + SHIFT + F1 ~ F8 )
-        ////////////////////////////////////////////////////////////////////////
-        i = MY_ID;
-        {
-          int j = 0;
-          for (j = 0; j < 8; j++)
-          {
-            if ( buf[j] != periodic_reset_key[i][j] )
-            {
-              break;
-            }
-          }
-          if ( j == 8 )
-          {
-            // 매크로 이어서 진행
-            function_key = true;
-            Serial.println("PERIODIC KEY RESET");
-
-            Serial.print("PERIODIC 1 - ");
-            Serial.println();
-            delay_1 = random(periodic_min1, periodic_max1);
-            periodic_millis1 = millis();
-
-            Serial.print("PERIODIC 2 - ");
-            Serial.println();
-            delay_2 = random(periodic_min2, periodic_max2);
-            periodic_millis2 = millis();
-
-            Serial.print("PERIODIC 3 - ");
-            Serial.println();
-            delay_3 = random(periodic_min3, periodic_max3);
-            periodic_millis3 = millis();
-
-            Serial.print("PERIODIC 4 - ");
-            Serial.println();
-            delay_4 = random(periodic_min4, periodic_max4);
-            periodic_millis4 = millis();
-
-            Serial.print("PERIODIC 5 - ");
-            Serial.println();
-            delay_5 = random(periodic_min5, periodic_max5);
-            periodic_millis5 = millis();
-
-            Serial.print("PERIODIC 6 - ");
-            Serial.println();
-            delay_6 = random(periodic_min6, periodic_max6);
-            periodic_millis6 = millis();
-
-            Serial.print("PERIODIC 7 - ");
-            Serial.println();
-            delay_7 = random(periodic_min7, periodic_max7);
-            periodic_millis7 = millis();
-
-            Serial.print("PERIODIC 8 - ");
-            Serial.println();
-            delay_8 = random(periodic_min8, periodic_max8);
-            periodic_millis8 = millis();
-
-            Serial.print("PERIODIC 9 - ");
-            Serial.println();
-            delay_9 = random(periodic_min9, periodic_max9);
-            periodic_millis9 = millis();
-
-            Serial.print("PERIODIC 10 - ");
-            Serial.println();
-            delay_10 = random(periodic_min10, periodic_max10);
-            periodic_millis10 = millis();
-          }
-        }
-        ////////////////////////////////////////////////////////////////////////
-        // 주기적 실행키 리셋 ( CTRL + SHIFT + F1 ~ F8 )
         ////////////////////////////////////////////////////////////////////////
 
         if ( function_key == true ) return;
