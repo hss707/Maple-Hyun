@@ -18,7 +18,7 @@ void S3() { // 범위기 2
 void S4() { // 
  pressKey(s_key04);
  _p_p();
- d_val(600); 
+ d_val(800); 
 }
 void S5() { // 스인미
  pressKey(s_key05);
@@ -40,7 +40,7 @@ void S7() { // 로프
 void S8() { // 범위기
  pressKey(s_key08);
  _p_p();
- d_val(1000); 
+ d_val(1200); 
 }
 void S9() { // 이동기
  pressKey(s_key09);

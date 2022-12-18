@@ -1,44 +1,56 @@
 void S1() { // 
  pressKey(s_key01);
- d_val(600);
+ _p_p();
+ d_val(700);
 }
 void S2() { // 범위기
  pressKey(s_key02);
- d_val(800); 
+ _p_p();
+ d_val(800);
 }
 void S3() { // 범위기 2
- pressKey(s_key03);
- d_val(1000); 
+ d_val(400); 
+ pressTwoKey(keys.down, s_key03);
+ rE();
+ _p_p();
+ d_val(800); 
 }
 void S4() { // 
  pressKey(s_key04);
+ _p_p();
  d_val(600); 
 }
-void S5() { // 에르다 파운틴
- d_val(400); 
- pressTwoKey(keys.down, s_key05);
- rE();
- d_val(800); 
+void S5() { // 스인미
+ pressKey(s_key05);
+ _p_p();
+ d_val(1000); 
 }
 void S6() { // 범위기
  pressKey(s_key06);
- d_val(700); 
+ _p_p();
+ d_val(1000); 
 }
 void S7() { // 로프
  pressKey(s_key07);
- d_val(1100);   
+ d_val(1200); 
+ Attack();
+ _p_p();
+ d_val(400); 
 }
 void S8() { // 범위기
  pressKey(s_key08);
- d_val(1600); 
+ _p_p();
+ d_val(1000); 
 }
-void S9() { // 지속기 2
+void S9() { // 이동기
  pressKey(s_key09);
- d_val(1100); 
+ _p_p();
+ d_val(500); 
 }
-void S10() { // 지속기 3
+void S10() { // 이동기
  pressKey(s_key10);
- d_val(600); 
+ _p_p();
+ d_val(500); 
 }
 
 int delay_list[10][10] =
@@ -174,7 +186,7 @@ void Downjump() {
 void Doublejump() {
  Jump();
  Jump2();
- rd_50(300);
+ rd_50(250);
 }
 void Doublejump2() {
  Jump();
@@ -194,6 +206,7 @@ void jump_attack_11() {
   Jump2();  
   rd_30(180);    
   Attack();
+  _p_p();
   d_main();
 }
 
@@ -236,10 +249,12 @@ void Downjumpattack() {
  Djump();
  rd_50(150);
  Attack();
+ _p_p();
  d_main();
 }
 void Down_jump_a() {
  Djump();
+ _p_p();
  rd_50(150);
  S4();
 }
@@ -247,6 +262,7 @@ void Downjumptread() {
  Djump();
  rd_50(150);
  S2();
+ _p_p();
  rd_50(450);
 }
 void jump_attack_L() {      // Jumpdivideleft()
@@ -254,6 +270,7 @@ void jump_attack_L() {      // Jumpdivideleft()
  rd_30(30);  
  jump_L();
  Attack();
+ _p_p();
  d_main();
 }
 void jump_attack_R() {      // Jumpdivideright()
@@ -261,32 +278,22 @@ void jump_attack_R() {      // Jumpdivideright()
  rd_30(30);  
  jump_R();
  Attack();
+ _p_p();
  d_main();
 }
-void jump_q() {
+void jump_a() {
  Jump();
  Jump2();
- Q();
- rd_50(1100);
+ S6();
+ _p_p();
+ rd_50(600);
 }
-void jump_w() {
+void jump_d() {
  Jump();
  Jump2();
- W();
- rd_50(1100);
-}
-void jump_e() {
- Jump();
- rd_30(30);  
- Jump2();
- E();
- rd_50(1100);
-}
-void jump_r() {
- Jump();
- Jump2();
- R();
- rd_50(1100);
+ S8();
+ _p_p();
+ rd_50(600);
 }
 
 void Area() {

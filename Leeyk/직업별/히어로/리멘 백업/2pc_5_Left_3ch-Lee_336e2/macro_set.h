@@ -53,16 +53,16 @@ int at[2] = {keys.lalt, keys.ralt};           // 1단점프
 int jp[2] = {keys.lalt, keys.ralt};        // 2단점프
 
 
-char const  s_key01 = 'q';       //       S1()  
-char const  s_key02 = 'w';        //       S2()  범위기 1
-char const  s_key03 = 'e';        //      S3()  범위기 2
-char const  s_key04 = 'r';        //     S4()  
-char const  s_key05 = 't';        //        S5()  
-char const  s_key06 = 'a';        //        S6()  범위기 3
+char const  s_key01 = 'q';       //       S1()  떨어지기
+char const  s_key02 = 'w';        //       S2()  범위기 1 찍기 
+char const  s_key03 = 'e';        //      S3()  에르다파운틴
+char const  s_key04 = 'r';        //     S4()  검기날리기
+char const  s_key05 = 't';        //        S5()  스인미
+char const  s_key06 = 'a';        //        S6()  범위기 3 검기지속
 char const  s_key07 = 's';        //        S7()  로프
-char const  s_key08 = 'd';        //        S8()  범위기 4
-char const  s_key09 = 'f';        //      S9()
-char const  s_key10 = 'g';        //      S10() 
+char const  s_key08 = 'd';        //        S8()  범위기 4 화면긋기
+char const  s_key09 = 'f';        //      S9() 이동기 1
+char const  s_key10 = 'g';        //      S10()  이동기 2
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////
