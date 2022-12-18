@@ -32,7 +32,7 @@ bool rd_30(int rd30_val1)        // rd_30 추가  22.11.14
 
 
 bool d_main() {
-  return delay1(random(random(470, 485), random(485, 500)));
+  return delay1(random(random(485, 500), random(500, 515)));
 }
 bool d_Main() {
   return delay1(random(random(150, 175), random(175, 200)));
